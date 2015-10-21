@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   root 'timeline#index'
   post '/write' => 'timeline#write'
   post '/comment' => 'timeline#comment'
+  
+  get '/destroy'=> 'timeline#destroy'
+  get '/edit' => 'timeline#edit'
+  get '/update' => 'timeline#update'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
