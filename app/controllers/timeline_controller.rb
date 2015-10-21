@@ -32,12 +32,20 @@ class TimelineController < ApplicationController
     end
     
     def comment_destroy
+        cc = Comment.find(params[:id])
+        cc.destroy
+        redirect_to :root
     end
     
     def comment_edit
+        @comment = Comment.find(params[:id])
     end
     
     def comment_update
+        cc = Comment.find(params[:id])
+        cc.msg = params[:comment]
+        cc.save
+        redirect_to :root
     end
     
 end

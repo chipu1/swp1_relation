@@ -22,9 +22,13 @@
     
     <ol>
     <% b.comments.each do |c| %>
-        <li><%=c.msg%></li>
+        <li><%=c.msg%>
+        <a href="comment_edit?id=<%=c.id%>">edit</a>
+        <a href="comment_destroy?id=<%=c.id%>">delete</a>
+        </li>
     <% end %>
     </ol>
+    
     </li>
     <% end %>
 

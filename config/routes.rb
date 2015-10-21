@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   get '/destroy'=> 'timeline#destroy'
   get '/edit' => 'timeline#edit'
   get '/update' => 'timeline#update'
+  
+  get '/comment_destroy' => 'timeline#comment_destroy'
+  get '/comment_edit' => 'timeline#comment_edit'
+  get '/comment_update' => 'timeline#comment_update'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
