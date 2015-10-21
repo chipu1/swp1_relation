@@ -1,5 +1,17 @@
 <h1>Timeline</h1>
+
+<hr/>
 <!--<form action="/write" method="post">-->
+
+<h3>[User List]</h3>
+<% @blogs.each do |b| %>
+    <li><%=b.user.email%> <a href="/mypage?id=<%b.user.id%>">go to page</a></li>
+<% end %>
+
+<hr/>
+
+<h3>[Posting]</h3>
+
 <%=form_tag '/write', method: 'post' do%>
     <textarea name="naeyoung"></textarea>
     <input type="submit">
@@ -8,7 +20,7 @@
 <ul>
     
     <% @blogs.each do |b| %>
-    <li><%=b.content%>
+    <li><%=b.user.email%> : <%=b.content%>
     
     <a href="/edit?id=<%=b.id%>">edit</a>
     <a href="/destroy?id=<%=b.id%>">delete</a>
@@ -22,7 +34,7 @@
     
     <ol>
     <% b.comments.each do |c| %>
-        <li><%=c.msg%>
+        <li><%=c.user.email%> : <%=c.msg%>
         <a href="comment_edit?id=<%=c.id%>">edit</a>
         <a href="comment_destroy?id=<%=c.id%>">delete</a>
         </li>

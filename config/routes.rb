@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'timeline#index'
   post '/write' => 'timeline#write'
   post '/comment' => 'timeline#comment'
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
   get '/comment_destroy' => 'timeline#comment_destroy'
   get '/comment_edit' => 'timeline#comment_edit'
   get '/comment_update' => 'timeline#comment_update'
+  
+  get '/mypage' => 'timeline#mypage'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
