@@ -3,12 +3,6 @@
 <hr/>
 <!--<form action="/write" method="post">-->
 
-<h3>[User List]</h3>
-<% @blogs.each do |b| %>
-    <li><%=b.user.email%> <a href="/mypage?id=<%b.user.id%>">go to page</a></li>
-<% end %>
-
-<hr/>
 
 <h3>[Posting]</h3>
 
@@ -17,22 +11,26 @@
         <textarea name="naeyoung" class="form-control" rows='2'></textarea>
     </div>
     
-    <div class='form-group'>
-        <input type="submit" value="등록" class='btn btn-primary'>
+    <div class='form-group' align="right">
+        <input type="submit" value="등록" class='btn btn-primary' >
     </div>
 <% end %>
+<hr/>
+
+<input type="text" name="username"> <input type="submit">
 
 <ul>
     
     <% @blogs.each do |b| %>
-    <li><%=b.user.email%> : 
+    <li><h4><%=b.user.email%> <a href="/page?id=<%=b.user.id%>">go to page</a> </h4>
     <div class="well">
         <%=b.content%>
     </div>
     
-    <a href="/edit?id=<%=b.id%>">edit</a>
-    <a href="/destroy?id=<%=b.id%>">delete</a>
-    
+    <div class="edit&delete" align="right">
+        <a href="/edit?id=<%=b.id%>">edit</a>
+        <a href="/destroy?id=<%=b.id%>">delete</a>
+    </div>
     <!--<form action="/comment" method="post">-->
     <%=form_tag '/comment', class: "form-inline" do%>
         <input type='hidden' name="blog_id" value="<%=b.id%>">
@@ -50,7 +48,7 @@
         </li>
     <% end %>
     </ol>
-    
+    <hr/>
     </li>
     <% end %>
 

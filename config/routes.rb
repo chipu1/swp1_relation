@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/comment_edit' => 'timeline#comment_edit'
   get '/comment_update' => 'timeline#comment_update'
   
-  get '/mypage' => 'timeline#mypage'
+  get '/page' => 'timeline#page'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

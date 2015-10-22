@@ -5,9 +5,9 @@ class TimelineController < ApplicationController
         @blogs = Blog.all.reverse
     end
     
-    # def mypage
-    #     @myblog = Blog.where(user_id: user.id)
-    # end
+    def page
+        @page = Blog.where(user_id: params[:id])
+    end
     
     def write
         Blog.create(user_id: current_user.id, content: params[:naeyoung])
