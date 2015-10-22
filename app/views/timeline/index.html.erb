@@ -13,22 +13,32 @@
 <h3>[Posting]</h3>
 
 <%=form_tag '/write', method: 'post' do%>
-    <textarea name="naeyoung"></textarea>
-    <input type="submit">
+    <div class='form-group'>
+        <textarea name="naeyoung" class="form-control" rows='2'></textarea>
+    </div>
+    
+    <div class='form-group'>
+        <input type="submit" value="등록" class='btn btn-primary'>
+    </div>
 <% end %>
 
 <ul>
     
     <% @blogs.each do |b| %>
-    <li><%=b.user.email%> : <%=b.content%>
+    <li><%=b.user.email%> : 
+    <div class="well">
+        <%=b.content%>
+    </div>
     
     <a href="/edit?id=<%=b.id%>">edit</a>
     <a href="/destroy?id=<%=b.id%>">delete</a>
     
     <!--<form action="/comment" method="post">-->
-    <%=form_tag '/comment' do%>
+    <%=form_tag '/comment', class: "form-inline" do%>
         <input type='hidden' name="blog_id" value="<%=b.id%>">
-        <input type="text" name="comment">
+        <div class="form-group">
+            <input type="text" name="comment" class="form-control">
+        </div>
         <input type="submit">
     <% end %>
     
