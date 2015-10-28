@@ -1,11 +1,11 @@
-<% @page.each do |b| %>
-    <li><h4><%=b.user.email%></h4> 
+<% @page.each do |w| %>
+    <li><h4><%=w.user.email%></h4> 
     <div class="well">
-        <%=b.content%>
+        <%=w.content%>
     </div>
     
     <div class="edit&delete" align="right">
-        <a href="/edit?id=<%=b.id%>">edit</a>
-        <a href="/destroy?id=<%=b.id%>">delete</a>
+        <a href="/edit?id=<%=w.id%>">edit</a>
+        <a href="/destroy?id=<%=w.id%>">delete</a>
     </div>
 <% end %>

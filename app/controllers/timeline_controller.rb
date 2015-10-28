@@ -1,6 +1,5 @@
 class TimelineController < ApplicationController
     before_action :authenticate_user!, except: :index
-    
     def index
         @blogs = Blog.all.reverse
     end
@@ -10,7 +9,7 @@ class TimelineController < ApplicationController
     end
     
     def write
-        Blog.create(user_id: current_user.id, content: params[:naeyoung])
+        Blog.create(user_id: current_user.id, content: params[:naeyong])
         redirect_to :root
     end
     
@@ -21,8 +20,8 @@ class TimelineController < ApplicationController
     end
     
     def destroy
-        bb = Blog.find(params[:id])
-        bb.destroy
+        w = Blog.find(params[:id])
+        w.destroy
         redirect_to :root
     end
     
@@ -31,15 +30,15 @@ class TimelineController < ApplicationController
     end
     
     def update
-        bb = Blog.find(params[:id])
-        bb.content = params[:naeyoung]
-        bb.save
+        w = Blog.find(params[:id])
+        w.content = params[:naeyong]
+        w.save
         redirect_to :root
     end
     
     def comment_destroy
-        cc = Comment.find(params[:id])
-        cc.destroy
+        v = Comment.find(params[:id])
+        v.destroy
         redirect_to :root
     end
     
@@ -48,9 +47,9 @@ class TimelineController < ApplicationController
     end
     
     def comment_update
-        cc = Comment.find(params[:id])
-        cc.msg = params[:comment]
-        cc.save
+        v = Comment.find(params[:id])
+        v.msg = params[:comment]
+        v.save
         redirect_to :root
     end
     
